@@ -15,6 +15,9 @@ MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 
 
+
+
+
 def number_game():
     secret = random.randint(1 , 100)
     tries = 0
@@ -49,12 +52,16 @@ def menu():
         print(CYAN + "--------game zone-------" + RESET)
         print( RED + "chose the game and tye the degit")
         print(YELLOW + BOLD + "1" + "  " + RESET + MAGENTA + BOLD + "guess the number" + RESET)
+        print(YELLOW + BOLD + "2" + "  " + RESET + MAGENTA + BOLD + "quit"+ RESET)
 
 
         choice = input(GREEN + BOLD + "chose the desired game>  ")
 
         if choice == "1":
             number_game()
+        elif choice == "2":
+            print("bye!!!")
+            break
         else:
             print("chose a appropite option")
 
