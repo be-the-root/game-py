@@ -15,7 +15,7 @@ def menu():
         print()
         print(CYAN + "--------game zone-------" + RESET)
         print( RED + "chose the game and tye the degit")
-        print(YELLOW + BOLD + "1" + "  " + RESET + "guess the number")
+        print(YELLOW + BOLD + "1" + "  " + RESET + MAGENTA + BOLD + "guess the number" + RESET)
 
 
         choice = input(GREEN + BOLD + "chose the desired game>  ")
