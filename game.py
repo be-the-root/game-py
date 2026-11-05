@@ -1,4 +1,8 @@
 
+import random
+
+
+
 # COLORS MENU FOR MAKIG IT LOOK GOOD , ILL USE THEM LATER
 RESET = "\033[0m"
 BOLD = "\033[1m"
@@ -10,6 +14,35 @@ BLUE = "\033[34m"
 MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 
+
+def number_game():
+    secret = random.randint(1 , 100)
+    tries = 0
+
+    print()
+    print(CYAN + BOLD +  " i picked a number between 1 and 100" + RESET)
+
+
+    while True:
+        guess = input("ur guess>>>")
+
+        try:
+            guess = int(guess)
+        except ValueError:
+            print(RED + BOLD + "please use a number between 1 to 100" + RESET)
+            continue
+
+        tries = tries + 1
+
+
+        if guess < secret:
+            print(YELLOW + "too low" + RESET)
+
+        elif guess > secret:
+            print(YELLOW + BOLD + "too high")
+        else:
+            print(GREEN + BOLD + "you got it!!!!!! " + "  " + " it took u " + str(tries) + " tries" + RESET)
+            return
 def menu():
     while True:
         print()
