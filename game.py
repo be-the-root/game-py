@@ -10,3 +10,16 @@ BLUE = "\033[34m"
 MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 
+def menu():
+    while True:
+        print()
+        print(CYAN + "--------game zone-------" + RESET)
+        print( RED + "chose the game and tye the degit")
+        print(YELLOW + BOLD + "1" + "  " + RESET + "guess the number")
+
+
+        choice = input(GREEN + BOLD + "chose the desired game>  ")
+
+
+
+menu()
