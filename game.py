@@ -16,8 +16,44 @@ CYAN = "\033[36m"
 
 
 
+def rock_game():
+    print()
+    print(CYAN + BOLD + "rock paper scissors - first to 3 wins" + RESET)
 
 
+    wins = 0
+    losses = 0
+
+    while wins < 3 and losses < 3:
+        player = input("rock, paper or scissors>>> ").lower()
+
+        if player != "rock" and player != "paper" and player != "scissors":
+            print(RED + BOLD + "thats not a move" + RESET)
+
+
+        computer = random.choice({"rock" , "paper" , "scissors"})
+        print(MAGENTA + BOLD + "computer picked " + RESET)
+        
+        if player == computer:
+            print(YELLOW + BOLD + "tiee" + RESET)
+        elif player == "rock" and computer == "scissors":
+            wins = wins + 1
+        elif player == "paper" and computer == "rock":
+            wins =wins + 1
+            print(GREEN + "u win that round" + RESET)
+        elif player == "scissors" and computer == "paper":
+            wins = wins + 1
+            print(GREEN + BOLD + "u won tlhis round" + RESET)
+        else:
+            losses = losses +1
+            print(RED + BOLD + "you lost this round" + RESET)
+
+        print("score : u" + str(wins)  + "  -  " + str(losses) + "computer")
+
+    if wins == 3:
+        print(GREEN + BOLD + " u won the match!!!!11" + RESET)
+    else:
+        print(RED + BOLD + "computer won , rematch????" + RESET)            
 def number_game():
     secret = random.randint(1 , 100)
     tries = 0
@@ -62,6 +98,8 @@ def menu():
         elif choice == "2":
             print("bye!!!")
             break
+        elif  choice == "3":
+            rock_game()
         else:
             print("chose a appropite option")
 
