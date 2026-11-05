@@ -31,7 +31,7 @@ def rock_game():
             print(RED + BOLD + "thats not a move" + RESET)
 
 
-        computer = random.choice({"rock" , "paper" , "scissors"})
+        computer = random.choice(["rock" , "paper" , "scissors"])
         print(MAGENTA + BOLD + "computer picked " + RESET)
         
         if player == computer:
