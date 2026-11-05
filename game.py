@@ -20,6 +20,9 @@ def menu():
 
         choice = input(GREEN + BOLD + "chose the desired game>  ")
 
-
+        if choice == "1":
+            number_game()
+        else:
+            print("chose a appropite option")
 
 menu()
