@@ -123,16 +123,21 @@ def rock_game():
     else:
         print(RED + BOLD + "computer won , rematch????" + RESET)
         print()          
+
+
 def number_game():
     secret = random.randint(1 , 100)
     tries = 0
 
     print()
     print(CYAN + BOLD +  " i picked a number between 1 and 100" + RESET)
+    print()
 
 
     while True:
+        print()
         guess = input(GREEN + BOLD + "ur guess>>>" + RESET)
+        print()
 
         try:
             guess = int(guess)
@@ -144,19 +149,23 @@ def number_game():
 
 
         if guess < secret:
-            print(YELLOW + "too low" + RESET)
+            print(YELLOW + BOLD +  "too low" + RESET)
+            print()
 
         elif guess > secret:
             print(YELLOW + BOLD + "too high" + RESET)
+            print()
         else:
             print(GREEN + BOLD + "you got it!!!!!! " + "  " + " it took u " + str(tries) + " tries" + RESET)
             return
+
+
 def menu():
     while True:
         print()
-        print(CYAN + BOLD +  "========  game zone  ===========" + RESET)
+        print(CYAN + BOLD +  "===========  game zone  ===========" + RESET)
         print()
-        print( RED + "chose the game and type the degit")
+        print( RED + BOLD +  "chose the game and type the degit")
         print()
         print(YELLOW + BOLD + "||  " + "1" + "  " + RESET + MAGENTA + BOLD + "guess the number" + RESET)
         print()
