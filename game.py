@@ -124,7 +124,7 @@ def number_game():
             print(YELLOW + "too low" + RESET)
 
         elif guess > secret:
-            print(YELLOW + BOLD + "too high")
+            print(YELLOW + BOLD + "too high" + RESET)
         else:
             print(GREEN + BOLD + "you got it!!!!!! " + "  " + " it took u " + str(tries) + " tries" + RESET)
             return
