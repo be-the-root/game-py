@@ -11,6 +11,81 @@ BLUE = "\033[34m"
 MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 
+def mansion_game():
+    room = "living room"
+    inventory = []
+    moves = 0
+
+    print()
+    print(CYAN + BOLD + "============== escape the mantion ==========" + RESET)
+    print()
+    print(YELLOW + BOLD + "you wake up in a strange mansion, find the key to escape" + RESET)
+    print()
+
+    while True:
+        moves = moves + 1
+
+
+        if room == "living_room":
+            print(MAGENTA + BOLD + "------ living room ------" + RESET)
+            print()
+            print("dusty sofas, broken tv , and a cold fireplace")
+            print(BOLD + "exits: " + RESET + "north, south")
+            print(BOLD + " you can see : " + RESET + "note, log")
+            print()
+
+            cmd = input(GREEN + BOLD + "> " + RESET ).strip().lower()
+
+            if cmd == "north":
+                room = "hallway"
+            elif cmd == "south":
+                if "key" in inventory:
+                    print()
+                    print(GREEN + BOLD + "you slide the key into the lock----" + RESET)
+                    print(GREEN + BOLD + "the door swings open, you escaped!!!" + RESET)
+                    print(YELLOW + "you did it in" + str(moves) + " moves" + RESET)
+                    print(GREEN + BOLD + " ------ you win ------")
+                    return
+                else:
+                    print(RED + "the front door is locked, u need a key" + RESET)
+            elif cmd == "take note":
+                if "note" in inventory:
+                    print(YELLOW + "you already hvae the note "+ RESET)
+                else:
+                    inventory.append("note")
+                    print(GREEN + "picked up note. it says: 'the key is under the bed" + RESET)
+            elif cmd == "take log":
+                if "log" in inventory:
+                    print(YELLOW + "you already have the log" + RESET)
+                else:
+                    inventory.append("log")
+                    print(GREEN + "picked up the wooden log" + RESET)
+            elif cmd == "inventory":
+                if len(inventory) == 0:
+                    print(YELLOW + "your pokets are empty" + RESET)
+                else:
+                    print(YELLOW + BOLD + "you have: " + str(inventory) + RESET)
+            elif cmd == "quit":
+                print(RED + BOLD + "you gave up and now u die, bye!!" + RESET)
+
+                return
+            elif cmd == "help":
+                print(YELLOW + BOLD + "commands: north south east west up down take search inventory quit")
+            else:
+                print(RED + "you cant do that here" + RESET)
+            print() 
+
+
+        elif room == "hallway":
+            print(MAGENTA + BOLD + "_______hallway______" + RESET)
+            print("a long hallway with creepy paintings, the floor creaks")
+            print(BOLD + "exits:" + RESET + " north south est west up")
+            print("you can see: painting")
+            print()
+
+            
+
+
 
 def scramble_game():
     words = ["python", "antique", "guitar", "planet", "castle", "dragon", "silver", "garden"]
