@@ -98,7 +98,7 @@ def rock_game():
         elif player == "p" and computer == "rock":
             wins =wins + 1
             print()
-            print(GREEN + "you won that round" + RESET)
+            print(GREEN + BOLD +  "you won that round" + RESET)
             
 
 
