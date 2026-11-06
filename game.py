@@ -77,29 +77,49 @@ def rock_game():
 
 
         computer = random.choice(["rock" , "paper" , "scissors"])
-        print(MAGENTA + BOLD + "computer picked " + RESET)
+        print(MAGENTA + BOLD + "computer picked "+ computer + RESET)
         
         if player == computer:
+            print()
             print(YELLOW + BOLD + "tiee" + RESET)
+            
+
+
         elif player == "r" and computer == "scissors":
             wins = wins + 1
-            print(GREEN + BOLD + "u won!!!!" + RESET)
+            print()
+            print(GREEN + BOLD + "you won!!!!" + RESET)
+            
+
+
         elif player == "p" and computer == "rock":
             wins =wins + 1
-            print(GREEN + "u win that round" + RESET)
+            print()
+            print(GREEN + "you won that round" + RESET)
+            
+
+
         elif player == "s" and computer == "paper":
             wins = wins + 1
-            print(GREEN + BOLD + "u won tlhis round" + RESET)
+            print()
+            print(GREEN + BOLD + "you won this round" + RESET)
+            
+
+
         else:
             losses = losses +1
+            print()
             print(RED + BOLD + "you lost this round" + RESET)
-
-        print(GREEN + BOLD + "score : u" + str(wins)  + "  -  " + str(losses) + "computer" + RESET)
+        print()   
+        print()
+        print(GREEN + BOLD + "score : you >> " + str(wins)  + "  -  " + str(losses) + "<< computer" + RESET)
 
     if wins == 3:
-        print(GREEN + BOLD + " u won the match!!!!11" + RESET)
+        print(GREEN + BOLD + " you won the match!!!!11" + RESET)
+        print()
     else:
-        print(RED + BOLD + "computer won , rematch????" + RESET)            
+        print(RED + BOLD + "computer won , rematch????" + RESET)
+        print()          
 def number_game():
     secret = random.randint(1 , 100)
     tries = 0
