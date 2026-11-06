@@ -12,7 +12,7 @@ MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 
 def mansion_game():
-    room = "living room"
+    room = "living_room"
     inventory = []
     moves = 0
 
@@ -83,6 +83,81 @@ def mansion_game():
             print("you can see: painting")
             print()
 
+            cmd = input(GREEN + BOLD + "> " + RESET).strip().lower()
+
+            if cmd == "north":
+                room = "kitchen"
+            elif cmd == "south":
+                room = "living_room"
+            elif cmd == "east":
+                room = "bedroom"
+            elif cmd == "west":
+                room = "bathroom"
+            elif cmd == "up":
+                room = "attic"
+            elif cmd == "take painting":
+                print(RED + BOLD + "the paintings are screwed to the wall")
+            elif cmd == "search painting":
+                print(YELLOW + BOLD + "behind the painting: its just a old wallpaper , nothing good" + RESET)
+            elif cmd == "inventory":
+                if len(inventory) == 0:
+                    print(YELLOW + BOLD + "yur pokets are empty" + RESET)
+                else:
+                    print(YELLOW + BOLD + "you have:  " + str(inventory) + RESET)
+            elif cmd == "quit":
+                print(YELLOW + BOLD + "you gave up")
+            elif cmd == "help":
+                print(YELLOW + "commands : north south east west up down take search inventory quit " + RESET)
+            else:
+                print(RED + "you cant do that here" + RESET)
+            print()
+
+
+        elif room == "kitchen":
+            print(MAGENTA + BOLD  + "-----kitchen-------" + RESET )
+            print("an old kitchen , pots everywhere, smeels weird")
+            print(BOLD + "exits: " + RESET + "south, east, down")
+            print("you can see: knife, apple")
+            print()
+
+            cmd = input(GREEN + BOLD + "> " + RESET).strip().lower()
+
+
+            if cmd == "south":
+                room = "hallway"
+            elif cmd == "east":
+                room = "dining_room"
+            elif cmd == "down":
+                room = "cellar"
+            elif cmd == "take knife":
+                if "knife" in inventory:
+                    print(YELLOW + BOLD + "you already have the knife" + RESET)
+                else:
+                    inventory.append("knife")
+                    print(GREEN + "picked up the knife")
+            elif cmd == "take apple":
+                if "apple" in inventory:
+                    print(YELLOW + BOLD + "you already have the apple")
+                else:
+                    inventory.append("apple")
+                    print(GREEN + BOLD + "you picked up the apple")
+            elif cmd == "inventory":
+                if len(inventory) == 0:
+                    print(YELLOW + BOLD + "your pokets are empty" + RESET)
+                else:
+                    print(YELLOW + "you have: " + str(inventory) + RESET)
+            elif cmd == "quit":
+                print(RED + "you gave up, u die byeee")
+                return
+            elif cmd == "help":
+                print(YELLOW + "commands: north south east west up down take search inventory quit")
+            else:
+                print(RED + "you cant do that here" + RESET)
+            print()
+
+        else:
+            print(RED + "nothing here lol i am going to run a test" + RESET)
+            return
             
 
 
@@ -250,6 +325,7 @@ def menu():
         print()
         print(YELLOW + BOLD + "||  " + "4" + "  " + RESET + MAGENTA + BOLD + "scrambled words" + RESET)
         print()
+        
         choice = input(GREEN + BOLD + "chose the desired game>  ")
 
         if choice == "1":
@@ -261,6 +337,8 @@ def menu():
             rock_game()
         elif choice == "4":
             scramble_game()
+        elif choice == "5":
+            mansion_game()
         else:
             print("chose a appropite option")
 
