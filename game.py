@@ -1,9 +1,6 @@
 
 import random
 
-
-
-# COLORS MENU FOR MAKIG IT LOOK GOOD , ILL USE THEM LATER
 RESET = "\033[0m"
 BOLD = "\033[1m"
 
@@ -56,13 +53,14 @@ def scramble_game():
 
     print(CYAN + BOLD + " you got " + str(score) + " out of " + str(rounds) + RESET)
 
+    if score == rounds:
+        print(GREEN + BOLD + " perfect score!!!" + RESET)
+    elif score >= 2:
+        print(YELLOW + BOLD + " not badd" + RESET )
+    else:
+        print(RED + BOLD + "study ur words lol" + RESET)
+
     
-
-
-
-
-
-
 def rock_game():
     print()
     print(CYAN + BOLD + "rock paper scissors - first to 3 wins" + RESET)
@@ -72,7 +70,7 @@ def rock_game():
     losses = 0
 
     while wins < 3 and losses < 3:
-        player = input("rock, paper or scissors>>> ").lower()
+        player = input(CYAN + BOLD + "rock (r), paper (p) or scissors (s)>> " + RESET).lower()
 
         if player != "rock" and player != "paper" and player != "scissors":
             print(RED + BOLD + "thats not a move" + RESET)
@@ -83,19 +81,19 @@ def rock_game():
         
         if player == computer:
             print(YELLOW + BOLD + "tiee" + RESET)
-        elif player == "rock" and computer == "scissors":
+        elif player == "r" and computer == "scissors":
             wins = wins + 1
-        elif player == "paper" and computer == "rock":
+        elif player == "p" and computer == "rock":
             wins =wins + 1
             print(GREEN + "u win that round" + RESET)
-        elif player == "scissors" and computer == "paper":
+        elif player == "s" and computer == "paper":
             wins = wins + 1
             print(GREEN + BOLD + "u won tlhis round" + RESET)
         else:
             losses = losses +1
             print(RED + BOLD + "you lost this round" + RESET)
 
-        print("score : u" + str(wins)  + "  -  " + str(losses) + "computer")
+        print(GREEN + BOLD + "score : u" + str(wins)  + "  -  " + str(losses) + "computer" + RESET)
 
     if wins == 3:
         print(GREEN + BOLD + " u won the match!!!!11" + RESET)
@@ -110,7 +108,7 @@ def number_game():
 
 
     while True:
-        guess = input("ur guess>>>")
+        guess = input(GREEN + BOLD + "ur guess>>>" + RESET)
 
         try:
             guess = int(guess)
@@ -132,7 +130,7 @@ def number_game():
 def menu():
     while True:
         print()
-        print(CYAN + "--------game zone-------" + RESET)
+        print(CYAN + BOLD +  "========  game zone  ===========" + RESET)
         print()
         print( RED + "chose the game and tye the degit")
         print()
@@ -141,7 +139,9 @@ def menu():
         print(YELLOW + BOLD + "2" + "  " + RESET + MAGENTA + BOLD + "quit"+ RESET)
         print()
         print(YELLOW + BOLD + "3" + "  " + RESET + MAGENTA + BOLD + "rock paper scirrors" + RESET)
-
+        print()
+        print(YELLOW + BOLD + "4" + "  " + RESET + MAGENTA + BOLD + "scrambled words" + RESET)
+        print()
         choice = input(GREEN + BOLD + "chose the desired game>  ")
 
         if choice == "1":
@@ -151,6 +151,8 @@ def menu():
             break
         elif  choice == "3":
             rock_game()
+        elif choice == "4":
+            scramble_game()
         else:
             print("chose a appropite option")
 
