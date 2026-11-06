@@ -79,7 +79,7 @@ def mansion_game():
         elif room == "hallway":
             print(MAGENTA + BOLD + "_______hallway______" + RESET)
             print("a long hallway with creepy paintings, the floor creaks")
-            print(BOLD + "exits:" + RESET + " north south est west up")
+            print(BOLD + "exits:" + RESET + " north south east west up")
             print("you can see: painting")
             print()
 
