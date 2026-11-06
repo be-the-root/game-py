@@ -15,6 +15,53 @@ MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 
 
+def scramble_game():
+    words = ["python", "antique", "guitar", "planet", "castle", "dragon", "silver", "garden"]
+
+
+    print()
+    print(CYAN + BOLD + "word scramble - unscramble 3 words" + RESET)
+    print()
+
+    score = 0
+    rounds = 3
+    for i in range(rounds):
+        word = random.choice(words)
+
+        letters = list(word)
+        random.shuffle(letters)
+
+        scrambled = ""
+        for ch in letters:
+            scrambled = scrambled + ch
+
+        tries = 0
+        while scrambled == word and tries < 20:
+            random.shuffle(letters)
+            scrambled = ""
+            for ch in letters:
+                scrambled = scrambled + ch
+            tries = tries + 1
+        print(MAGENTA + BOLD + "round " + str(i + 1) + " of " + str(rounds) + RESET)
+        print(YELLOW + BOLD + "  scrambled word: " + scrambled + RESET)
+
+        guess = input(GREEN + BOLD + "  ur guess>>> " + RESET ).strip().lower
+
+        if guess == word:
+            score = score + 1
+            print(GREEN + BOLD + "   correct" + RESET)
+        else:
+            print(RED + BOLD + "  nope, it was:  " + word + RESET)
+
+
+    print(CYAN + BOLD + " you got " + str(score) + " out of " + str(rounds) + RESET)
+
+    
+
+
+
+
+
 
 def rock_game():
     print()
@@ -86,10 +133,14 @@ def menu():
     while True:
         print()
         print(CYAN + "--------game zone-------" + RESET)
+        print()
         print( RED + "chose the game and tye the degit")
+        print()
         print(YELLOW + BOLD + "1" + "  " + RESET + MAGENTA + BOLD + "guess the number" + RESET)
+        print()
         print(YELLOW + BOLD + "2" + "  " + RESET + MAGENTA + BOLD + "quit"+ RESET)
-
+        print()
+        print(YELLOW + BOLD + "3" + "  " + RESET + MAGENTA + BOLD + "rock paper scirrors" + RESET)
 
         choice = input(GREEN + BOLD + "chose the desired game>  ")
 
