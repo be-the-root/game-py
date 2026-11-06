@@ -42,7 +42,7 @@ def scramble_game():
         print(MAGENTA + BOLD + "round " + str(i + 1) + " of " + str(rounds) + RESET)
         print(YELLOW + BOLD + "  scrambled word: " + scrambled + RESET)
 
-        guess = input(GREEN + BOLD + "  ur guess>>> " + RESET ).strip().lower
+        guess = input(GREEN + BOLD + "  ur guess>>> " + RESET ).strip().lower()
 
         if guess == word:
             score = score + 1
