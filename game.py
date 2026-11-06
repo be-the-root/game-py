@@ -72,7 +72,7 @@ def rock_game():
     while wins < 3 and losses < 3:
         player = input(CYAN + BOLD + "rock (r), paper (p) or scissors (s)>> " + RESET).lower()
 
-        if player != "rock" and player != "paper" and player != "scissors":
+        if player != "r" and player != "p" and player != "s":
             print(RED + BOLD + "thats not a move" + RESET)
 
 
@@ -83,6 +83,7 @@ def rock_game():
             print(YELLOW + BOLD + "tiee" + RESET)
         elif player == "r" and computer == "scissors":
             wins = wins + 1
+            print(GREEN + BOLD + "u won!!!!" + RESET)
         elif player == "p" and computer == "rock":
             wins =wins + 1
             print(GREEN + "u win that round" + RESET)
