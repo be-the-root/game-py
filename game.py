@@ -193,7 +193,7 @@ def mansion_game():
                 print(YELLOW + "commands: north south east east up down take search inventory quit" + RESET)
             else:
                 print(RED + BOLD + "you cant do that here" + RESET)
-                print() 
+            print() 
 
         else:
             print(RED + "nothing here lol i am going to run a test" + RESET)
