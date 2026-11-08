@@ -352,7 +352,40 @@ def mansion_game():
                 print(RED + BOLD + "you cant do that here")
             print()
 
-            
+        elif room == "library":
+            print(MAGENTA + BOLD + "============ library =========" + RESET)
+            print("floor to ceiling bookshelves, dust everywhere, silent but fees noisy")
+            print(BOLD + "exits: " + RESET + "west")
+            print(BOLD + "you can see: " + RESET + "tome , ladder")
+
+            cmd = input(GREEN + BOLD + "> " + RESET).strip().lower()
+
+            if cmd == "west":
+                room = "study"
+            elif cmd == "take tome":
+                if "tome" in inventory:
+                    print(YELLOW + BOLD + "you already have the tome" + RESET)
+                else:
+                    inventory.append("tome")
+                    print(GREEN + "picked up a dusty tome, i hums quitly" + RESET)
+            elif cmd == "take ladder":
+                print(RED + BOLD +"isnt it too big for ur poket?? lol")
+            elif cmd == "search shelves":
+                print(YELLOW + "thousands of books, all too dusty to read and half are burned " + RESET)
+            elif cmd == "inventory":
+                if len(inventory) == 0:
+                    print(YELLOW + "you have nothing (not the phone compony)" + RESET)
+                else:
+                    print(YELLOW + "you have: " + str(inventory) + RESET)
+            elif cmd == "quit":
+                print(RED + BOLD + "you gave up, read books with the monsters" + RESET)
+                return
+            elif cmd == "help":
+                print(YELLOW + "commands: north south east west up down take search inventory quit" + RESET)
+            else:
+                print(RED + BOLD + "you cant do that here" + RESET)
+    
+
 
 
         else:
