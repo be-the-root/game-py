@@ -25,6 +25,7 @@ def show_hud(room, moves, inventory):
     print(CYAN + "=" * 46 + RESET)
     print()
 
+
 def lockpick_minigame():
     print()
     print(CYAN + BOLD + "=========== lockpicking ===========")
@@ -118,15 +119,6 @@ def lockpick_minigame():
     return True
 
 
-                
-
-
-
-
-
-
-
-
 def mansion_game():
     clear_screen()
     room = "living_room"
@@ -163,13 +155,23 @@ def mansion_game():
             elif cmd == "south":
                 if "key" in inventory:
                     print()
-                    print(GREEN + BOLD + "you slide the key into the lock----" + RESET)
-                    print(GREEN + BOLD + "the door swings open, you escaped!!!" + RESET)
-                    print(YELLOW + "you did it in" + str(moves) + " moves" + RESET)
-                    print(GREEN + BOLD + " ------ you win ------")
-                    return
+                    print(YELLOW + "key only opens the first tumbler" + RESET)
+                    time.sleep(1.5)
+
+                    if lockpick_minigame():
+                        print()
+                        print(GREEN + BOLD + "======= escaped =======" + RESET)
+                        print(YELLOW + "in " + str(moves) + " moves" + RESET)
+                        print()
+                        time.sleep(2)
+                        return
+                    else:
+                        print(YELLOW + "step back and try again" + RESET)
+                        print()
+                        time.sleep(1.5)
                 else:
-                    print(RED + "the front door is locked, u need a key" + RESET)
+                    print(RED + "front door is locked, need a key" + RESET)
+
             elif cmd == "take note":
                 if "note" in inventory:
                     print(YELLOW + "you already hvae the note "+ RESET)
