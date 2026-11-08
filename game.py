@@ -310,7 +310,50 @@ def mansion_game():
             else:
                 print(RED + "you cant do that here")
 
-                
+        elif room == "study":
+            print(MAGENTA + BOLD + "============== study room =========")
+            print("a small study room with a desk and a book shelf, papers everywhere")
+            print(BOLD + "exits: " + RESET + "west, east")
+            print(BOLD + "you can see: " + RESET + "book, pen")
+            print()
+
+
+            cmd = input(GREEN + BOLD + "> " + RESET).strip().lower()
+            if cmd == "west":
+                room = "bedroom"
+            elif cmd == "east":
+                room = "library"
+            elif cmd == "take book":
+                if "book" in inventory:
+                    print(YELLOW + "you already have the book" + RESET)
+                else:
+                    inventory.append("book")
+                    print(GREEN + "picked up the book, titlr: how to escape " + RESET)
+            elif cmd == "take pen":
+                if "pen" in inventory:
+                    print(YELLOW + "you already have the pen")
+                else:
+                    inventory.append("pen")
+                    print(GREEN + "u picked up the pen now")
+
+            elif cmd == "search desk":
+                print(YELLOW + "just old papers, nothing usefull" + RESET)
+            elif cmd == "inventory":
+                if len(inventory) == 0:
+                    print(YELLOW + "your pokets are empty" + RESET)
+                else:
+                    print(YELLOW + "you have: " + str(inventory) + RESET)
+            elif cmd == "help":
+                print("commands: north south east west up down take search inventory quit" + RESET)
+            elif cmd == "quit":
+                print(RED + BOLD + "u gave up in study room,  have fun studing with the monster")
+                return
+            else:
+                print(RED + BOLD + "you cant do that here")
+            print()
+
+            
+
 
         else:
             print(RED + "nothing here lol i am going to run a test" + RESET)
