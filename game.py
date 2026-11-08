@@ -195,6 +195,85 @@ def mansion_game():
                 print(RED + BOLD + "you cant do that here" + RESET)
             print() 
 
+        elif room == "bathroom":
+            print(MAGENTA +  BOLD + "------------- bathroom -----------")
+            print(" a small bathroom, cracked mirror, weaird smell")
+            print(BOLD + "exits: " + RESET + "east")
+            print(BOLD + "you can see: " + RESET + "towel, soap")
+            print()
+
+            cmd = input(GREEN + BOLD + "> " + RESET).strip().lower()
+
+            if cmd == "east":
+                room = "hallway"
+            elif cmd == "take towel":
+                if "towel" in inventory:
+                    print(YELLOW + BOLD + "you already have the towel" + RESET)
+                else:
+                    inventory.append("towel")
+                    print(GREEN + BOLD + "picked up the towel")
+
+            elif cmd == "take soap":
+                if "soap" in inventory:
+                    print(YELLOW + BOLD + "you already have the soap in ur poket")
+                else:
+                    inventory.append("soap")
+                    print(GREEN + "picked up the soap" + RESET)
+
+            elif cmd == "search mirror":
+                print(YELLOW + "you see your tried face, nothing hidden")
+            elif cmd == "inventory":
+                if len(inventory) == 0:
+                    print(YELLOW + "your pokes are empty" + RESET)
+                else:
+                    print(YELLOW + "you have: " + str(inventory) + RESET)
+            elif cmd == "quit":
+                print(RED + BOLD + "you gave up in tha bathroom" + RESET)
+                return
+            elif cmd == "help":
+                print(YELLOW + "commands: north south east west up down take search inventory quit")
+            else:
+                print(RED + BOLD + "you cant do that here")
+        elif room == "cellar":
+            print(MAGENTA +  BOLD + "=========== cellar =========" + RESET)
+            print("a dark damp cellar, selv of old wine")
+            print(BOLD + "exits: " + RESET + "up")
+            print(BOLD + "you can see: " + RESET + "up" )
+            print()
+
+            cmd = input(GREEN+ BOLD + "> " + RESET).strip().lower
+
+            if cmd == "up":
+                room = "kitchen"
+            elif cmd == "take wine":
+                if "wine" in inventory:
+                    print(YELLOW + BOLD + "you already have wine" + RESET)
+                else:
+                    inventory.append("wine")
+                    print(GREEN + "picked up a dusty old wine bottle" + RESET)
+            elif cmd == "take chesse":
+                if "cheese" in inventory:
+                    print(YELLOW + BOLD + "you already have cheese" + RESET)
+                else:
+                    inventory.append("cheese")
+                    print(GREEN + "picked up some chesse")
+            elif cmd == "search shelves":
+                print(YELLOW + "just more wine, nothing usefull" + RESET)
+            elif cmd == "inventory":
+                if len(inventory) == 0:
+                    print(YELLOW + "your pokets are empty" + RESET)
+                else:
+                    print(YELLOW + "you have: " + str(inventory) + RESET)
+            elif cmd == "quit":
+                print(RED + BOLD + "you gave up, happy dying")
+                return
+            elif cmd == "help":
+                print(YELLOW + "commands: north south east west up down take search inventory quit" + RESET)
+            else:
+                print(RED + BOLD + "you cant do that here" + RESET)
+            print()
+            
+
         else:
             print(RED + "nothing here lol i am going to run a test" + RESET)
             return
