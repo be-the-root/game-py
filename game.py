@@ -1,5 +1,6 @@
 
 import random
+import time
 
 RESET = "\033[0m"
 BOLD = "\033[1m"
@@ -36,7 +37,9 @@ def mansion_game():
     print()
 
     while True:
+        time.sleep(2)
         moves = moves + 1
+        
         clear_screen()
         show_hud(room, moves, inventory)
 
@@ -589,10 +592,14 @@ def number_game():
 
 def menu():
     while True:
+
         print()
         print(CYAN + BOLD +  "===========  game zone  ===========" + RESET)
         print()
+        print()
         print( RED + BOLD +  "chose the game and type the degit")
+        print()
+        print(YELLOW + BOLD + "||  " + "0" + "  " + RESET + MAGENTA + BOLD + "escae the mansion || main  game" + RESET)
         print()
         print(YELLOW + BOLD + "||  " + "1" + "  " + RESET + MAGENTA + BOLD + "guess the number" + RESET)
         print()
@@ -601,6 +608,7 @@ def menu():
         print(YELLOW + BOLD + "||  " + "3" + "  " + RESET + MAGENTA + BOLD + "rock paper scirrors" + RESET)
         print()
         print(YELLOW + BOLD + "||  " + "4" + "  " + RESET + MAGENTA + BOLD + "scrambled words" + RESET)
+        print()
         print()
         
         choice = input(GREEN + BOLD + "chose the desired game>  ")
