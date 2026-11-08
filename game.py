@@ -196,7 +196,7 @@ def mansion_game():
             print() 
 
         elif room == "bathroom":
-            print(MAGENTA +  BOLD + "------------- bathroom -----------")
+            print(MAGENTA +  BOLD + "------------- bathroom -----------" + RESET)
             print(" a small bathroom, cracked mirror, weaird smell")
             print(BOLD + "exits: " + RESET + "east")
             print(BOLD + "you can see: " + RESET + "towel, soap")
@@ -272,7 +272,7 @@ def mansion_game():
             else:
                 print(RED + BOLD + "you cant do that here" + RESET)
             print()
-            
+
 
         else:
             print(RED + "nothing here lol i am going to run a test" + RESET)
