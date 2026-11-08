@@ -317,6 +317,7 @@ def mansion_game():
                     print(YELLOW + "you have: " + str(inventory) + RESET)
             elif cmd == "quit":
                 print(RED + BOLD + "bye" + RESET)
+                return
             elif cmd == "help":
                 print(YELLOW + "commands: north south east west up down take search inventory quit")
             else:
