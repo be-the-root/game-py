@@ -254,7 +254,7 @@ def mansion_game():
             print(BOLD + "you can see: " + RESET + "up" )
             print()
 
-            cmd = input(GREEN+ BOLD + "> " + RESET).strip().lower
+            cmd = input(GREEN+ BOLD + "> " + RESET).strip().lower()
 
             if cmd == "up":
                 room = "kitchen"
@@ -402,7 +402,7 @@ def mansion_game():
             print()
 
 
-            cmd == input(GREEN + BOLD + "> " + RESET).strip().lower()
+            cmd = input(GREEN + BOLD + "> " + RESET).strip().lower()
 
             if cmd == "down":
                 room = "hallway"
@@ -439,9 +439,6 @@ def mansion_game():
             print(RED + "nothing here lol i am going to run a test" + RESET)
             return
             
-
-
-
 def scramble_game():
     words = ["python", "antique", "guitar", "planet", "castle", "dragon", "silver", "garden"]
 
@@ -599,15 +596,15 @@ def menu():
         print()
         print( RED + BOLD +  "chose the game and type the degit")
         print()
-        print(YELLOW + BOLD + "||  " + "0" + "  " + RESET + MAGENTA + BOLD + "escae the mansion || main  game" + RESET)
+        print(YELLOW + BOLD + "||  " + "0" + "  " + RESET + MAGENTA + BOLD + "escpae the mansion || main  game" + RESET)
         print()
         print(YELLOW + BOLD + "||  " + "1" + "  " + RESET + MAGENTA + BOLD + "guess the number" + RESET)
         print()
-        print(YELLOW + BOLD + "||  " + "2" + "  " + RESET + MAGENTA + BOLD + "quit"+ RESET)
+        print(YELLOW + BOLD + "||  " + "2" + "  " + RESET + MAGENTA + BOLD + "scrambled words"+ RESET)
         print()
         print(YELLOW + BOLD + "||  " + "3" + "  " + RESET + MAGENTA + BOLD + "rock paper scirrors" + RESET)
         print()
-        print(YELLOW + BOLD + "||  " + "4" + "  " + RESET + MAGENTA + BOLD + "scrambled words" + RESET)
+        print(YELLOW + BOLD + "||  " + "4" + "  " + RESET + MAGENTA + BOLD + "quit" + RESET)
         print()
         print()
         
@@ -615,14 +612,14 @@ def menu():
 
         if choice == "1":
             number_game()
-        elif choice == "2":
+        elif choice == "4":
             print("bye!!!")
             break
         elif  choice == "3":
             rock_game()
-        elif choice == "4":
+        elif choice == "2":
             scramble_game()
-        elif choice == "5":
+        elif choice == "0":
             mansion_game()
         else:
             print("chose a appropite option")
