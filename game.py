@@ -13,6 +13,8 @@ MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 
 
+
+
 def clear_screen():
     print("\033[2J\033[H" , end="")
 
@@ -133,8 +135,10 @@ def mansion_game():
     print()
 
     while True:
-        if cmd not in ("north" , "south" , "east" , "west" , "up" , "down" , ""):
+        if cmd in ("north" , "south" , "east" , "west" , "up" , "down" , ""):
             time.sleep(2.5)
+        elif cmd != "":
+            time.sleep(4)
         moves = moves + 1
         clear_screen()
         show_hud(room, moves, inventory)
@@ -613,9 +617,9 @@ def rock_game():
 
         if player != "r" and player != "p" and player != "s":
             print(RED + BOLD + "thats not a move" + RESET)
+            continue
 
-
-        computer = random.choice(["rock" , "paper" , "scissors"])
+        computer = random.choice(["r" , "p" , "s"])
         print(MAGENTA + BOLD + "computer picked "+ computer + RESET)
         
         if player == computer:
