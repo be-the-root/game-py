@@ -11,7 +11,20 @@ BLUE = "\033[34m"
 MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 
+def clear_screen():
+    print("\033[2J\033[H" , end="")
+
+def show_hud(room, moves, inventory):
+    name = room.replace("_", " ")
+    print(CYAN + "=" * 50 + RESET)
+    print(CYAN + " room: " + BOLD + name.ljust(20) + RESET + CYAN + "moves: " + str(moves).ljust(4) + RESET)
+    print(CYAN + "   items: " + str(len(inventory)) + RESET)
+    print(CYAN + "=" * 50 + RESET)
+    print()
+
+
 def mansion_game():
+    clear_screen()
     room = "living_room"
     inventory = []
     moves = 0
@@ -24,6 +37,8 @@ def mansion_game():
 
     while True:
         moves = moves + 1
+        clear_screen()
+        show_hud(room, moves, inventory)
 
 
         if room == "living_room":
@@ -74,8 +89,6 @@ def mansion_game():
             else:
                 print(RED + "you cant do that here" + RESET)
             print() 
-
-
         elif room == "hallway":
             print(MAGENTA + BOLD + "_______hallway______" + RESET)
             print("a long hallway with creepy paintings, the floor creaks")
@@ -111,8 +124,6 @@ def mansion_game():
             else:
                 print(RED + "you cant do that here" + RESET)
             print()
-
-
         elif room == "kitchen":
             print(MAGENTA + BOLD  + "-----kitchen-------" + RESET )
             print("an old kitchen , pots everywhere, smeels weird")
@@ -194,7 +205,6 @@ def mansion_game():
             else:
                 print(RED + BOLD + "you cant do that here" + RESET)
             print() 
-
         elif room == "bathroom":
             print(MAGENTA +  BOLD + "------------- bathroom -----------" + RESET)
             print(" a small bathroom, cracked mirror, weaird smell")
@@ -272,7 +282,6 @@ def mansion_game():
             else:
                 print(RED + BOLD + "you cant do that here" + RESET)
             print()
-
         elif room == "dining_room":
             print(MAGENTA + BOLD + "=============== dining room ===============" + RESET)
             print("a big dining table, chairs knowked over, candles burded out")
@@ -309,7 +318,6 @@ def mansion_game():
                 print(YELLOW + "commands: north south east west up down take search inventory quit")
             else:
                 print(RED + "you cant do that here")
-
         elif room == "study":
             print(MAGENTA + BOLD + "============== study room =========")
             print("a small study room with a desk and a book shelf, papers everywhere")
@@ -351,7 +359,6 @@ def mansion_game():
             else:
                 print(RED + BOLD + "you cant do that here")
             print()
-
         elif room == "library":
             print(MAGENTA + BOLD + "============ library =========" + RESET)
             print("floor to ceiling bookshelves, dust everywhere, silent but fees noisy")
@@ -401,17 +408,17 @@ def mansion_game():
                     print(YELLOW + "you already have the box")
                 else:
                     inventory.append("box")
-                    print(GREEN + "picked up the box")
+                    print(GREEN + "picked up the box") 
             elif cmd == "take cloths":
                 if "cloths" in inventory:
-                    print(YELLOW + "you alredy have cloths")
+                    print(YELLOW + "you alredy have cloths" + RESET)
                 else:
                     inventory.append("cloths")
-                    print(GREEN + "picked up cloths")
+                    print(GREEN + "picked up cloths" + RESET)
             elif cmd == "search box":
-                print(YELLOW + BOLD + "box is locked , you need a key to open this shi")
+                print(YELLOW + BOLD + "box is locked , you need a key to open this shi" + RESET)
             elif cmd == "open box":
-                print(GREEN + BOLD + "in the box there is nothing but just some old photos")
+                print(GREEN + BOLD + "in the box there is nothing but just some old photos" + RESET)
             elif cmd == "inventory":
                 if len(inventory) == 0:
                     print(YELLOW + "your poket is empty")
