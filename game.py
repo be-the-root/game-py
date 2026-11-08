@@ -273,6 +273,44 @@ def mansion_game():
                 print(RED + BOLD + "you cant do that here" + RESET)
             print()
 
+        elif room == "dining_room":
+            print(MAGENTA + BOLD + "=============== dining room ===============" + RESET)
+            print("a big dining table, chairs knowked over, candles burded out")
+            print(BOLD + "exits: " + RESET + "west")
+            print(BOLD + "you can see: " + RESET + "candle, plate")
+            print()
+
+            cmd = input(GREEN + BOLD + "> " + RESET).strip().lower()
+
+            if cmd == "west":
+                room = "kitchen"
+            elif cmd == "take candle":
+                if "candle" in inventory:
+                    print(YELLOW + BOLD + "you already have the candle" + RESET)
+                else:
+                    inventory.append("candle")
+                    print(GREEN + "picke up a burning candle (that means ur poket is burning , lol)" + RESET)
+            elif cmd == "take plate":
+                if "plate" in inventory:
+                    print(YELLOW + BOLD + "you already have plate" + RESET)
+                else:
+                    inventory.append("plate")
+                    print(GREEN + "picked up a dusty plate" + RESET)
+            elif cmd == "search table":
+                print(YELLOW + "a single coin , not really usefull")
+            elif cmd == "inventory":
+                if len(inventory) == 0:
+                    print(YELLOW + "your pockets are empty")
+                else:
+                    print(YELLOW + "you have: " + str(inventory) + RESET)
+            elif cmd == "quit":
+                print(RED + BOLD + "bye" + RESET)
+            elif cmd == "help":
+                print(YELLOW + "commands: north south east west up down take search inventory quit")
+            else:
+                print(RED + "you cant do that here")
+
+                
 
         else:
             print(RED + "nothing here lol i am going to run a test" + RESET)
