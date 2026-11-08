@@ -12,8 +12,10 @@ BLUE = "\033[34m"
 MAGENTA = "\033[35m"
 CYAN = "\033[36m"
 
+
 def clear_screen():
     print("\033[2J\033[H" , end="")
+
 
 def show_hud(room, moves, inventory):
     name = room.replace("_", " ").upper()
@@ -22,6 +24,107 @@ def show_hud(room, moves, inventory):
     print(CYAN + "  moves: " + str(moves) + "   items: " + str(len(inventory)) + RESET)
     print(CYAN + "=" * 46 + RESET)
     print()
+
+def lockpick_minigame():
+    print()
+    print(CYAN + BOLD + "=========== lockpicking ===========")
+    print()
+    print("5 tumblers, pick 1 - 10 for each,")
+    print()
+    print()
+    print("1 -carefull (6 tries)")
+    print("2 - normal  (4 tries)")
+    print("3 - rushed  (2 tries)")
+    print()
+
+    diff = input(GREEN + BOLD + ">>> " + RESET).strip()
+
+    if diff == "1":
+        max_tries = 6
+    elif diff =="2":
+        max_tries = 4
+    else:
+        max_tries = 2
+
+    print()
+    time.sleep(1)
+
+    print(CYAN + "tumbler 1/5" + RESET)
+    time.sleep(0.5)
+    print("  key turns")
+    time.sleep(0.3)
+    print(GREEN + "  click!!!" + RESET)
+    print()
+    time.sleep(0.8)
+
+
+    for t in range(2, 6):
+        if t == 5:
+            top = 15
+            rng = "1-15"
+            break_chance = 15
+        else:
+            top = 10
+            rng = "1-10"
+            break_chance = 20
+
+        secret = random.randint(1, top)
+        tries = max_tries
+        opened = False
+
+        print(CYAN + "tumbler" + str(t) + "/5  (" + rng + ")" + RESET)
+        print("  tries: " + str(tries))
+        print()
+
+        while tries > 0:
+            guess = input(GREEN + BOLD + ">  " + RESET).strip()
+
+
+            if not guess.isdigit():
+                print(RED + "  not a number" + RESET)
+                continue
+
+            guess = int(guess)
+
+            if guess < 1 or guess > top:
+                print(RED + "  " + rng + " only" + RESET)
+                continue
+
+            tries = tries - 1
+
+            if guess == secret:
+                print(GREEN + BOLD + "   click!!!! opened" + RESET)
+                print()
+                time.sleep(0.6)
+                opened = True
+                break
+            elif guess < secret:
+                print(YELLOW + "tooo low  (" + str(tries) + " left)" + RESET)
+            else:
+                print(YELLOW + "   too high ("  + str(tries) + ")" + "lrft" + RESET)
+
+
+            if random.randint(1, break_chance) == 1:
+                print(RED + " pick bent!!! - 1 try" + RESET)
+                tries = tries - 1
+        if not opened:
+            print()
+            print(RED + BOLD + "jammed" + RESET)
+            time.sleep(1)
+            return False
+
+    print(GREEN + BOLD + "clack! the lock opens" + RESET)
+    time.sleep(1)
+    return True
+
+
+                
+
+
+
+
+
+
 
 
 def mansion_game():
@@ -441,7 +544,8 @@ def mansion_game():
         else:
             print(RED + "nothing here lol i am going to run a test" + RESET)
             return
-            
+
+
 def scramble_game():
     words = ["python", "antique", "guitar", "planet", "castle", "dragon", "silver", "garden"]
 
