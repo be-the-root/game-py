@@ -16,11 +16,11 @@ def clear_screen():
     print("\033[2J\033[H" , end="")
 
 def show_hud(room, moves, inventory):
-    name = room.replace("_", " ")
-    print(CYAN + "=" * 50 + RESET)
-    print(CYAN + " room: " + BOLD + name.ljust(20) + RESET + CYAN + "moves: " + str(moves).ljust(4) + RESET)
-    print(CYAN + "   items: " + str(len(inventory)) + RESET)
-    print(CYAN + "=" * 50 + RESET)
+    name = room.replace("_", " ").upper()
+    print(CYAN + "=" * 46 + RESET)
+    print(CYAN + name + RESET)
+    print(CYAN + "  moves: " + str(moves) + "   items: " + str(len(inventory)) + RESET)
+    print(CYAN + "=" * 46 + RESET)
     print()
 
 
@@ -29,6 +29,7 @@ def mansion_game():
     room = "living_room"
     inventory = []
     moves = 0
+    cmd = ""
 
     print()
     print(CYAN + BOLD + "============== escape the mantion ==========" + RESET)
@@ -37,9 +38,9 @@ def mansion_game():
     print()
 
     while True:
-        time.sleep(2)
+        if cmd not in ("north" , "south" , "east" , "west" , "up" , "down" , ""):
+            time.sleep(2.5)
         moves = moves + 1
-        
         clear_screen()
         show_hud(room, moves, inventory)
 
@@ -252,7 +253,7 @@ def mansion_game():
             print(MAGENTA +  BOLD + "=========== cellar =========" + RESET)
             print("a dark damp cellar, selv of old wine")
             print(BOLD + "exits: " + RESET + "up")
-            print(BOLD + "you can see: " + RESET + "up" )
+            print(BOLD + "you can see: " + RESET + "wine, chesse" )
             print()
 
             cmd = input(GREEN+ BOLD + "> " + RESET).strip().lower()
