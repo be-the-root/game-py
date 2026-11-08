@@ -384,10 +384,47 @@ def mansion_game():
                 print(YELLOW + "commands: north south east west up down take search inventory quit" + RESET)
             else:
                 print(RED + BOLD + "you cant do that here" + RESET)
-    
+        elif room == "attic":
+            print(MAGENTA + BOLD + "=========== attic ========" + RESET)
+            print("a dark attic, old boxes stacked high, dust in the air")
+            print(BOLD + "exits: " + RESET + "down")
+            print(BOLD + "you can see: " + RESET + "box, cloths")
+            print()
 
 
+            cmd == input(GREEN + BOLD + "> " + RESET).strip().lower()
 
+            if cmd == "down":
+                room = "hallway"
+            elif cmd == "take box":
+                if "box" in inventory:
+                    print(YELLOW + "you already have the box")
+                else:
+                    inventory.append("box")
+                    print(GREEN + "picked up the box")
+            elif cmd == "take cloths":
+                if "cloths" in inventory:
+                    print(YELLOW + "you alredy have cloths")
+                else:
+                    inventory.append("cloths")
+                    print(GREEN + "picked up cloths")
+            elif cmd == "search box":
+                print(YELLOW + BOLD + "box is locked , you need a key to open this shi")
+            elif cmd == "open box":
+                print(GREEN + BOLD + "in the box there is nothing but just some old photos")
+            elif cmd == "inventory":
+                if len(inventory) == 0:
+                    print(YELLOW + "your poket is empty")
+                else:
+                    print(YELLOW + "you have: " + str(inventory) + RESET)
+            elif cmd == "quit":
+                print(RED + BOLD + "you died")
+                return
+            elif cmd == "help":
+                print(YELLOW + "commands: north south east west up down take search inventory quit" + RESET)
+            else:
+                print(RED + "you cant do that here" + RESET)
+            print()
         else:
             print(RED + "nothing here lol i am going to run a test" + RESET)
             return
